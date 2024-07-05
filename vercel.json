@@ -1,0 +1,51 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "src/main.ts",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "public/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "swagger/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "swagger-static/**",
+            "use": "@vercel/static"
+        }
+    ],
+    "headers": [
+        {
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Credentials",
+                    "value": "true"
+                },
+                {
+                    "key": "Access-Control-Allow-Headers",
+                    "value": "Authorization, Set-Cookie, Cookie, X-Vercel-Id, X-Vercel-Cache, X-Powered-By, Strict-Transport-Security, Server, Etag, Date, Content-Type, Content-Length, Connection, Cache-Control"
+                },
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                },
+                {
+                    "key": "Cross-Origin-Opener-Policy",
+                    "value": "*"
+                }
+            ],
+            "source": "/(.*)"
+        }
+    ],
+    "regions": ["fra1"],
+    "rewrites": [
+        {
+            "destination": "src/main.ts",
+            "source": "/(.*)"
+        }
+    ]
+}
