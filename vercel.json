@@ -44,7 +44,7 @@
     "regions": ["fra1"],
     "rewrites": [
         {
-            "destination": "src/main.ts",
+            "destination": "src/core/main.ts",
             "source": "/(.*)"
         }
     ]

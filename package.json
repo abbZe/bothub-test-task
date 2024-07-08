@@ -1,8 +1,8 @@
 {
-    "name": "rehub-straight",
+    "name": "bothub-test-task",
     "version": "0.0.1",
     "description": "",
-    "author": "Dmitrii Titarenko && Dmitrii Rudenko",
+    "author": "Dmitrii Titarenko",
     "jest": {
         "collectCoverageFrom": [
             "**/*.(t|j)s"
