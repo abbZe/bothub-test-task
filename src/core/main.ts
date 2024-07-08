@@ -21,7 +21,7 @@ class Application {
         this._PORT = _PORT;
     }
 
-    public async start() {
+    public async start(): Promise<NestExpressApplication> {
         await this.initializeApp();
         await this.configureApp();
         await this.configureSwagger();
@@ -29,7 +29,7 @@ class Application {
         await this._app?.listen(this._PORT);
         Logger.log(`🏄‍♀️ [APP] Application is running on: ${await this._app?.getUrl()}`);
 
-        return this._app;
+        return this._app!;
     }
 
     private async initializeApp(): Promise<NestExpressApplication> {
@@ -67,6 +67,7 @@ class Application {
             .setTitle('REHub API')
             .setDescription('API для получения объектов недвижимости и выгрузки их в агрегаторы')
             .setVersion('1.0')
+            .addBearerAuth()
             .build();
         const swaggerDoc = SwaggerModule.createDocument(this._app!, swaggerCfg, {
             deepScanRoutes: true,
